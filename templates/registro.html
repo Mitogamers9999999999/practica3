@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro en Seminarios</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Registro en Seminarios</h2>
+
+        <form action="/" method="POST">
+            <div class="form-row">
+                <!-- Fecha -->
+                <div class="form-group">
+                    <label for="date">Fecha:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                <!-- Nombre -->
+                <div class="form-group">
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <!-- Apellido -->
+                <div class="form-group">
+                    <label for="lastname">Apellido:</label>
+                    <input type="text" id="lastname" name="lastname" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <!-- Turno -->
+                <div class="form-group">
+                    <label for="turn">Turno:</label>
+                    <div class="turn-options">
+                        <input type="radio" id="morning" name="turn" value="Mañana" required> Mañana
+                        <input type="radio" id="afternoon" name="turn" value="Tarde"> Tarde
+                        <input type="radio" id="night" name="turn" value="Noche"> Noche
+                    </div>
+                </div>
+
+                <!-- Seminarios disponibles -->
+                <div class="form-group">
+                    <label for="seminars">Seminarios disponibles:</label>
+                    <div class="seminar-options">
+                        <input type="checkbox" id="ai" name="seminars" value="Inteligencia Artificial"> Inteligencia Artificial<br>
+                        <input type="checkbox" id="ml" name="seminars" value="Machine Learning"> Machine Learning<br>
+                        <input type="checkbox" id="sim" name="seminars" value="Simulación con Arena"> Simulación con Arena<br>
+                        <input type="checkbox" id="robotics" name="seminars" value="Robótica Educativa"> Robótica Educativa
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botón de envío -->
+            <div class="form-row">
+                <button type="submit">Enviar registro</button>
+            </div>
+        </form>
+
+        <!-- Botón para ver inscritos -->
+        <br>
+        <a href="{{ url_for('listado') }}" class="button">Ver inscritos</a>
+    </div>
+</body>
+</html>
